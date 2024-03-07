@@ -8,6 +8,7 @@ class PhotosController < ApplicationController
 
   # GET /photos/1 or /photos/1.json
   def show
+    @user = User.find_by!(username: params.fetch(:username))
   end
 
   # GET /photos/new
@@ -59,6 +60,10 @@ class PhotosController < ApplicationController
 
   def liked
       @user = User.find_by!(username: params.fetch(:username))
+  end
+
+  def feed
+    @user = User.find_by!(username: params.fetch(:username))
   end
 
   private
