@@ -12,11 +12,11 @@
     <%= link_to "Feed", feed_photos_path(@user.username), class: "nav-link" %>
   </li>
   <li class="nav-item">
-    <a class="nav-link disabled">Followers</a>
+    <%= link_to "Followers", followers_photos_path(@user.username), class: "nav-link" %>
   </li>
 
     <li class="nav-item">
-    <a class="nav-link disabled">Following</a>
+    <%= link_to "Following", following_path(@user.username), class: "nav-link" %>
   </li>
 
 </ul>
@@ -26,11 +26,7 @@
 
 <h1> <%= @user.username %> </h1>
 
-
-
-
-
-  <% current_user.own_photos.each do |photo| %>
+  <% @user.own_photos.each do |photo| %>
   <%= render "photos/photo", photo: photo %>
 
 </div>
