@@ -24,11 +24,10 @@
   </div>
 </div>
 
-<h1> <%= @user.username %> </h1>
+<h1><%= @user.username %></h1>
 
-  <% @user.own_photos.each do |photo| %>
-  <%= render "photos/photo", photo: photo %>
-
-</div>
-
-  <% end %>
+<% @user.followers.each do |follower| %>
+  <ul>
+    <li><%= link_to follower.username, user_path(follower.username) %></li>
+  </ul>
+<% end %>

@@ -8,6 +8,7 @@ class PhotosController < ApplicationController
 
   # GET /photos/1 or /photos/1.json
   def show
+    @user = User.find_by!(username: params.fetch(:username))
   end
 
   # GET /photos/new
@@ -55,6 +56,18 @@ class PhotosController < ApplicationController
       format.html { redirect_to photos_url, notice: "Photo was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def liked
+      @user = User.find_by!(username: params.fetch(:username))
+  end
+
+  def feed
+    @user = User.find_by!(username: params.fetch(:username))
+  end
+
+  def followers
+    @user = User.find_by!(username: params.fetch(:username))
   end
 
   private
